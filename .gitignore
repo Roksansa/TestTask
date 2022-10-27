@@ -1,0 +1,21 @@
+Intermediate/
+Saved/
+DerivedDataCache/
+Binaries/
+Build/
+BuildFromEditor/
+BuildFromBat/
+Plugins/Developer
+.idea/
+.vs/
+.p4ignore.txt
+*.sln
+.git
+
+
+
+#c++
+# Build results
+[Dd]ebug/
+[Rr]elease/
+x64/
