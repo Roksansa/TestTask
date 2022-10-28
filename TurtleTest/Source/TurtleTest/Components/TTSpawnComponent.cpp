@@ -14,7 +14,7 @@ AActor* UTTSpawnComponent::SpawnObject(TSubclassOf<AActor> Actor)
 	if (Actor != nullptr)
 	{
 		FActorSpawnParameters SpawnParameters;
-		SpawnParameters.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AlwaysSpawn;
+		SpawnParameters.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AdjustIfPossibleButAlwaysSpawn;
 		SpawnedActor = GetWorld()->SpawnActor(Actor, &SpawnData.RespawnActor->GetTransform(), SpawnParameters);
 	}
 	return SpawnedActor;

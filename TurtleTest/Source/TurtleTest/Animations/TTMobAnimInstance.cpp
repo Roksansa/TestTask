@@ -23,4 +23,6 @@ void UTTMobAnimInstance::NativeUpdateAnimation(float DeltaSeconds)
 
 	const UFloatingPawnMovement* MovComponent = StaticCast<UFloatingPawnMovement*>(CurrentMob->GetMovementComponent());
 	Speed = MovComponent->Velocity.Size();
+	bIsGoal = CurrentMob->GetGoalDone();
+	bIsSpawnTime = CurrentMob->GetOnSpawnTime();
 }

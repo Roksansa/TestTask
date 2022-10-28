@@ -8,6 +8,7 @@
 #include "TTSpawnPoint.generated.h"
 
 class UTTSpawnComponent;
+class UNiagaraSystem;
 
 UCLASS()
 class TURTLETEST_API ATTSpawnPoint : public AActor
@@ -34,4 +35,7 @@ private:
 	ETTTurtleType RespawnType;
 	UPROPERTY(EditInstanceOnly, BlueprintReadOnly, Category = GameInfo, meta = (AllowPrivateAccess = "true", MakeEditWidget))
 	FVector GoalLocation;
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "VFX", meta = (AllowPrivateAccess = "true"))
+	UNiagaraSystem* Effect;
 };

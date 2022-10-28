@@ -20,7 +20,10 @@ protected:
 	float Speed;
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Settings")
-	bool bIsDeath = false;
+	bool bIsGoal = false;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Settings")
+	bool bIsSpawnTime = false;
 
 private:
 	TWeakObjectPtr<class ATTMobPawn> CurrentMob;

@@ -3,10 +3,8 @@
 
 #include "Actors/TTMobPawn.h"
 
-// Sets default values
 ATTMobPawn::ATTMobPawn()
 {
-	// Set this pawn to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 
 }
@@ -16,16 +14,34 @@ void ATTMobPawn::SetGoalLocation(FVector NewGoalLocation)
 	GoalLocation = NewGoalLocation;
 }
 
-// Called when the game starts or when spawned
+UNiagaraSystem* ATTMobPawn::GetNiagaraSystem(ETTEffectsType Type) const
+{
+	return Effects.Contains(Type) ? Effects[Type] : nullptr;
+}
+
+void ATTMobPawn::SetGoalDone(bool bDone)
+{
+	bGoalDone = bDone;
+}
+
+bool ATTMobPawn::GetGoalDone() const
+{
+	return bGoalDone;
+}
+
+void ATTMobPawn::SetOnSpawnTime(bool bDone)
+{
+	bOnSpawnTime = bDone;
+}
+
+bool ATTMobPawn::GetOnSpawnTime() const
+{
+	return bOnSpawnTime;
+}
+
 void ATTMobPawn::BeginPlay()
 {
 	StartLocation = GetActorLocation();
 	Super::BeginPlay();
-}
-
-// Called every frame
-void ATTMobPawn::Tick(float DeltaTime)
-{
-	Super::Tick(DeltaTime);
-
+	SetOnSpawnTime(false);
 }

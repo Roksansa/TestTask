@@ -15,7 +15,10 @@ public class TurtleTest : ModuleRules
 			"Engine",
 			"InputCore",
 			"UMG",
-			"GameplayTasks"
+			"GameplayTasks",
+			"Niagara", 
+			"NiagaraAnimNotifies",
+			"AIModule"
 		});
 
 		// Uncomment if you are using Slate UI
