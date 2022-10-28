@@ -14,6 +14,7 @@ void ATTSpawnPoint::BeginPlay()
 {
 	Super::BeginPlay();
 	check(SpawnComponent);
+	SpawnComponent->SetArea(SpawnArea);
 }
 
 ETTTurtleType ATTSpawnPoint::GetRespawnType() const

@@ -28,8 +28,13 @@ public:
 	AActor* SpawnObject(TSubclassOf<AActor> Actor);
 
 	virtual void BeginPlay() override;
+
+	void SetArea(const FVector2D& Vector);
 private:
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = GameInfo, meta = (AllowPrivateAccess = "true"))
 	FTTDataSpawnActor SpawnData;
+
+	UPROPERTY()
+	FVector2D Area;
 };

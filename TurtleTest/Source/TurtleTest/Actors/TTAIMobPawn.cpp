@@ -15,7 +15,7 @@ void ATTAIMobPawn::InitBlackboard()
 	ATTAIController* AIC = GetController<ATTAIController>();
 	if (AIC && AIC->GetBlackboardComponent())
 	{
-		AIC->GetBlackboardComponent()->SetValueAsVector(KeyNameGoal, GoalLocation + StartLocation);
+		AIC->GetBlackboardComponent()->SetValueAsVector(KeyNameGoal, GoalLocation);
 		AIC->GetBlackboardComponent()->SetValueAsVector(KeyNameStart, StartLocation);
 	}
 }

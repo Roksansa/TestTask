@@ -47,7 +47,8 @@ void ATurtleTestGameModeBase::SpawnObject(int RespawnType)
 			ATTMobPawn* Mob = StaticCast<ATTMobPawn*>(SpawnPoint->GetTTSpawnComponent()->SpawnObject(TemplateObjects[Type]));
 			if (Mob)
 			{
-				Mob->SetGoalLocation(SpawnPoint->GetGoalLocation());
+				FVector RotateGoalVector = SpawnPoint->GetActorRotation().RotateVector(SpawnPoint->GetGoalLocation());
+				Mob->SetGoalLocation(RotateGoalVector + SpawnPoint->GetActorLocation());
 				if (ATTAIMobPawn* AIMob = StaticCast<ATTAIMobPawn*>(Mob))
 				{
 					AIMob->InitBlackboard();

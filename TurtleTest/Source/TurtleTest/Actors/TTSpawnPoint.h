@@ -38,4 +38,7 @@ private:
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "VFX", meta = (AllowPrivateAccess = "true"))
 	UNiagaraSystem* Effect;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = GameInfo, meta = (AllowPrivateAccess = "true", MakeEditWidget))
+	FVector2D SpawnArea = FVector2D(100,100);
 };

@@ -14,8 +14,12 @@ AActor* UTTSpawnComponent::SpawnObject(TSubclassOf<AActor> Actor)
 	if (Actor != nullptr)
 	{
 		FActorSpawnParameters SpawnParameters;
-		SpawnParameters.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AdjustIfPossibleButAlwaysSpawn;
-		SpawnedActor = GetWorld()->SpawnActor(Actor, &SpawnData.RespawnActor->GetTransform(), SpawnParameters);
+		SpawnParameters.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AdjustIfPossibleButDontSpawnIfColliding;
+
+		FTransform Transform = SpawnData.RespawnActor->GetTransform();
+		const FVector OffsetLoc = FVector(FMath::RandRange(-Area.X, Area.X), FMath::RandRange(-Area.Y, Area.Y), 0);
+		Transform.SetLocation(Transform.GetLocation() + OffsetLoc);
+		SpawnedActor = GetWorld()->SpawnActor(Actor, &Transform, SpawnParameters);
 	}
 	return SpawnedActor;
 }
@@ -27,4 +31,9 @@ void UTTSpawnComponent::BeginPlay()
 	{
 		SpawnData.RespawnActor = GetOwner();
 	}
+}
+
+void UTTSpawnComponent::SetArea(const FVector2D& Vector)
+{
+	Area = Vector;
 }
